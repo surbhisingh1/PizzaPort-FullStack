@@ -5,7 +5,7 @@ using PizzaPort.Application.DTOs;
 
 namespace PizzaPort.API.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ItemController : ControllerBase
     {
@@ -19,18 +19,8 @@ namespace PizzaPort.API.Controllers
         [Route("GetItems")]
         public async Task<ActionResult<IEnumerable<ItemResponseDTO>>> GetAllItems()
         {
-            var result = await _itemService.GetItemsAsync();
+            var result=await _itemService.GetItems();
             return Ok(result);
         }
-
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ItemResponseDTO>> GetItemById(int id)
-        {
-            var item=await _itemService.GetItemByIdAsync(id);
-            return Ok(item);
-        }
-
-
     }
 }
