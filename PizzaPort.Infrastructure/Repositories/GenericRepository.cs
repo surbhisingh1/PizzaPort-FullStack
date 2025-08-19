@@ -45,5 +45,12 @@ namespace PizzaPort.Infrastructure.Repositories
              .ProjectTo<TDomain>(_mapper.ConfigurationProvider)
              .ToListAsync();
         }
+
+        public async Task<TDomain?> GetByIdAsync(object id)
+        {        
+                TEntity? obj = await _dbContext.Set<TEntity>().FindAsync(id);
+               return obj==null ? null : _mapper.Map<TDomain>(obj);         
+
+        }
     }
 }

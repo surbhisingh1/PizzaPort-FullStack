@@ -11,7 +11,7 @@ namespace PizzaPort.Application.Contracts
     public interface IItemService
     {
 
-        public Task<IEnumerable<ItemResponseDTO>> GetItems();
-        
+        public Task<IEnumerable<ItemResponseDTO>> GetItemsAsync();
+        public Task<ItemResponseDTO> GetItemByIdAsync(int id);
     }
 }

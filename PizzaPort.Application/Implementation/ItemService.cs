@@ -21,7 +21,16 @@ namespace PizzaPort.Application.Implementation
             _itemRepository = itemRepository;
             _mappers = mappers;
         }
-        public async Task<IEnumerable<ItemResponseDTO>> GetItems()
+
+        public async Task<ItemResponseDTO> GetItemByIdAsync(int id)
+        {
+            ItemDomain? selectedItem=await _itemRepository.GetByIdAsync(id);
+            var obj=_mappers.Map<ItemResponseDTO>(selectedItem);
+            return obj;
+           
+        }
+
+        public async Task<IEnumerable<ItemResponseDTO>> GetItemsAsync()
         {
            IEnumerable<ItemDomain> result= await _itemRepository.GetAllAsync();
             //List<ItemResponseDTO> items= new List<ItemResponseDTO>();
@@ -37,5 +46,6 @@ namespace PizzaPort.Application.Implementation
 
             
         }
+        
     }
 }
