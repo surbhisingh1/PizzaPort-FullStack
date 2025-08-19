@@ -8,10 +8,9 @@ namespace PizzaPort.Application.DTOs
 {
     public class ItemResponseDTO
     {
-        public string ItemName { get; set; }
-
-        public string Description { get; set; }
-
+        public string ItemName { get; set; } = default!;
+        public string Description { get; set; } = default!;
         public decimal UnitPrice { get; set; }
+        public string ImageUrl { get; set; } = default!;
     }
 }
