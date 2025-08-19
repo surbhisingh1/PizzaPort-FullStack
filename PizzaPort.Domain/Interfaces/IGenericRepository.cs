@@ -10,6 +10,7 @@ namespace PizzaPort.Domain.Interfaces
     {
         public Task AddAsyn(TDomain DomainEntity);
         public Task<IEnumerable<TDomain>> GetAllAsync();
+        public Task<TDomain?> GetByIdAsync(object id);   
         public Task<int> CommitAsync(); 
     }
 }
