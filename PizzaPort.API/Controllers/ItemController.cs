@@ -23,7 +23,6 @@ namespace PizzaPort.API.Controllers
             return Ok(result);
         }
 
-
         [HttpGet("{id}")]
         public async Task<ActionResult<ItemResponseDTO>> GetItemById(int id)
         {
